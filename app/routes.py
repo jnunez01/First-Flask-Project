@@ -3,7 +3,9 @@ import os
 from app import app
 from flask import render_template, request, redirect, session
 from flask_pymongo import PyMongo
+from datetime import datetime
 import datetime
+
 
 app.secret_key = '\xfd{H\xe5<\x95\xf9\xe3\x96.5\xd1\x01O<!\xd5\xa2\xa0\x9fR"\xa1\xa8'
 # name of database
@@ -59,7 +61,7 @@ def signup():
             print("New User Created!")
             return redirect('/community-board')
         return redirect('/log-in')
-        
+
 @app.route('/log-out', methods = ['GET', 'POST'])
 def log_out():
     session.clear()
@@ -68,27 +70,34 @@ def log_out():
 @app.route('/community-board', methods = ['GET', 'POST'])
 def community_board():
     e = mongo.db.message
-    
     user = mongo.db.user
     events = e.find({}).sort('date',-1)
     return render_template('chatroom.html', events = events, user = user)
-
+    
    
 
 @app.route('/new-message', methods=['GET', 'POST'])
 def new_message():
+   
     if request.method =="GET": 
         
         return "Please enter your message"
+
     else:
+        
         message_name = request.form['message_name']
-        # message_date = request.form['message_date']
-        message_data = datetime.datetime.now()
-        print ("Current date and time : ")
-        print (message_data.strftime("%Y-%m-%d %H:%M:%S"))
-        events = mongo.db.message
-        events.insert({'message': message_name, 'date': message_data})
-        return redirect('/community-board')
+        #message_date = request.form['message_date']
+        
+        now = datetime.datetime.now()
+        message_date = now.strftime("%m-%d-%Y %H:%M:%S")
+
+    events = mongo.db.message
+    events.insert({'message': message_name, 'date': message_date})
+
+  
+    return redirect('/community-board')
+   
+    
 
 @app.route('/remove')
 def emptyDatabase():
@@ -99,7 +108,12 @@ def emptyDatabase():
     #print(collection.count_documents({}))    #how to get count of documents (records)
     return redirect('/community-board')
 
-
+@app.route("/trainlineinfo")
+def trainlineinfo():
+    events = mongo.db.message
+    user = mongo.db.user
+    return render_template('trainline.html')
+    
 
 
 

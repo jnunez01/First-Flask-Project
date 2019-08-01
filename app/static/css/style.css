@@ -5,6 +5,9 @@
  *
  * Made By MaterializeCSS.com
  */
+ /*.mainnav{*/
+ /*  padding:0px 10px;*/
+ /*}*/
 .sidenav-trigger {
   color: #26a69a;
 }
@@ -52,4 +55,6 @@ body {
 main {
     flex: 1 0 auto;
 }
-
+h1.card-title{
+  font-size: 100px;
+}

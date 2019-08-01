@@ -8,14 +8,16 @@
         <link rel = "icon" type = "image/png" href = "static/train.png">
     </head>
     <body>
-        
-        <nav>
-            <div class="nav-wrapper">
-                <a href="#" class="brand-logo">Help others be up to date! </a>
+         <nav>
+            <div class="nav-wrapper grey darken-4">
+                <a href="/index" class="brand-logo"><i class="material-icons">train</i>MTAze</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="sass.html">Sass</a></li>
-                    <li><a href="badges.html">Components</a></li>
-                    <li><a href="collapsible.html">JavaScript</a></li>
+                    <li><a href = "/community-board">Alerts</a></li>
+                </ul>
+                <ul class="right hide-on-med-and-down">
+                    <!--<li><a href="#">Home</a></li>-->
+                    <li><a href="trainline.html">Train Line Info</a></li>
+                    <li><a href="#">Contact</a></li>
                 </ul>
             </div>
         </nav>
@@ -26,7 +28,7 @@
               <p>{{ message.message }} - {{ message.date }}</p>
           {% endfor %}
         </ul>
-        
+       </div> 
        <form method="post" action="/new-message">
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
@@ -41,7 +43,7 @@
                 <p id="date"></p>
                 <script>
                 let d = Date();
-                let ds = d.toString().replace(/ GMT.*/,'')
+                let ds = d.toString().replace(/ GMT.*/,'');
                 document.getElementById("date").innerHTML = ds;
                 document.getElementById("hidden_date").innerHTML = ds;
                 document.addEventListener('DOMContentLoaded', function() {
@@ -54,6 +56,11 @@
             <!--    <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>-->
             <!--    <p></p>-->
             <!--    </div>-->
+            <form action="upload.php" method="post" enctype="multipart/form-data">
+                Select image to upload:
+                <input type="file" name="fileToUpload" id="fileToUpload">
+                <input type="submit" value="Upload Image" name="submit">
+                </form>
             </div>
             <button class="btn waves-effect waves-light" type="submit" name="action">Send
             <i class="material-icons right"></i>
@@ -68,6 +75,26 @@
           </form>
       </div>
       <a href='/remove'>REMOVE</a>
+      <footer class="page-footer grey darken-4 grey-text text-lighten-1">
+      <div class="container">
+        <div class="row">
+        <!-- These divs will need classes so that they work as described -->
+        <div class="col l2">Spotify Logo
+        <ul>
+          <li>Hello everyone.</li>
+        </ul>
+        </div>
+        <div class="col l2">Company content
+        <ul>
+           <li>Tell me more.</li> 
+        </ul>
+        </div>
+        <div class="col l2">Communities content</div>
+        <div class="col l2">Useful links content</div>
+        <div class="col l4">Social icons - this one is twice as wide as the other four.</div>
+        </div>
+      </div>
+        </footer>
     </body>
 </html>
 
