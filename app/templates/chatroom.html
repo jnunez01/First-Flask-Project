@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title>Mtaze Message-Board</title>
+        <link type="text/css" rel="stylesheet" href="style.css" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="static/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link rel = "icon" type = "image/png" href = "static/train.png">
+    </head>
+    <body>
+        
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">Help others be up to date! </a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="sass.html">Sass</a></li>
+                    <li><a href="badges.html">Components</a></li>
+                    <li><a href="collapsible.html">JavaScript</a></li>
+                </ul>
+            </div>
+        </nav>
+        <h1>MTAze App</h1>
+      <div>
+        <ul>
+          {% for message in events %}
+              <p>{{ message.message }} - {{ message.date }}</p>
+          {% endfor %}
+        </ul>
+        
+       <form method="post" action="/new-message">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator">
+                </div>
+                <div class="card-content">
+                 <label for="message">Enter your message here:</label>
+                <input type="text" name="message_name" value="">
+            
+                <label for="message_date">Date: </label>
+                <input type="hidden" name="message_date" id="hidden_date" value="">
+                <p id="date"></p>
+                <script>
+                let d = Date();
+                let ds = d.toString().replace(/ GMT.*/,'')
+                document.getElementById("date").innerHTML = ds;
+                document.getElementById("hidden_date").innerHTML = ds;
+                document.addEventListener('DOMContentLoaded', function() {
+                    var elems = document.querySelectorAll('select');
+                    var instances = M.FormSelect.init(elems, options);
+                });
+                </script>
+            <!--</div>-->
+            <!--    <div class="card-reveal">-->
+            <!--    <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>-->
+            <!--    <p></p>-->
+            <!--    </div>-->
+            </div>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Send
+            <i class="material-icons right"></i>
+            </button>
+      </form>
+      </div>
+      <div style="clear:both">
+          <form align="right" name="form1" method="post" action="/log-out">
+             <label>
+                 <input name="submit2" type="submit" id="submit2" value="log out">
+              </label>
+          </form>
+      </div>
+      <a href='/remove'>REMOVE</a>
+    </body>
+</html>
+
+ 
