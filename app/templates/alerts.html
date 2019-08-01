@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Alerts</title>
+        <link type="text/css" rel="stylesheet" href="style.css" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="static/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link rel = "icon" type = "image/png" href = "static/train.png">
+    </head>
+    <body>
+         <nav>
+            <div class="nav-wrapper grey darken-4">
+                <a href="/index" class="brand-logo"><i class="material-icons">train</i>MTAze</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href = "/alerts">Alerts</a></li>
+                    <!--<li><a href="#">Home</a></li>-->
+                    <li><a href="/trainlineinfo">Train Line Info</a></li>
+                </ul>
+            </div>
+        </nav>
+        <h1>MTAze Alerts</h1>
+      <div>
+        <ul>
+          {% for message in events %}
+             <li>
+              <p>{{ message.message }} - {{ message.date }}</p>
+             </li>
+          {% endfor %}
+        </ul>
+        <footer id='footer 'class="page-footer grey darken-4 grey-text text-lighten-1" >
+            <div class="container">
+            <div class="row">
+            <!-- These divs will need classes so that they work as described -->
+            <div class="col l2">Spotify Logo
+            <ul>
+              <li>Hello everyone.</li>
+            </ul>
+            </div>
+            <div class="col l2">Company content
+            <ul>
+               <li>Tell me more.</li> 
+            </ul>
+            </div>
+            <div class="col l2">Communities content</div>
+            <div class="col l2">Useful links content</div>
+            <div class="col l4">Social icons - this one is twice as wide as the other four.</div>
+            </div>
+             </div>
+        </footer>
+    </body>
+</html>
+
+ 

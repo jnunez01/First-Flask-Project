@@ -90,6 +90,8 @@ def new_message():
         
         now = datetime.datetime.now()
         message_date = now.strftime("%m-%d-%Y %H:%M:%S")
+        
+
 
     events = mongo.db.message
     events.insert({'message': message_name, 'date': message_date})
@@ -113,6 +115,13 @@ def trainlineinfo():
     events = mongo.db.message
     user = mongo.db.user
     return render_template('trainline.html')
+
+@app.route("/alerts")
+def alerts():
+    e = mongo.db.message
+    user = mongo.db.user
+    events = e.find({}).sort('date',-1)
+    return render_template('alerts.html',events = events, user = user)
     
 
 
