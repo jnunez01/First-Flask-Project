@@ -12,12 +12,12 @@
             <div class="nav-wrapper grey darken-4">
                 <a href="/index" class="brand-logo"><i class="material-icons">train</i>MTAze</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href = "/alerts">Alerts</a></li>
+
+                    <li><a href="/log-out">Log Out</a></li>
                 </ul>
                 <ul class="right hide-on-med-and-down">
-                    <!--<li><a href="#">Home</a></li>-->
                     <li><a href="/trainlineinfo">Train Line Info</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href = "/alerts">Alerts</a></li>
                 </ul>
             </div>
         </nav>
@@ -69,23 +69,28 @@
             </button>
       </form>
       </div>
-      <div style="clear:both">
-          <form align="right" name="form1" method="post" action="/log-out">
-             <label>
-                 <input name="submit2" type="submit" id="submit2" value="log out">
-              </label>
-          </form>
-      </div>
+
       <a href='/remove'>REMOVE</a>
-      <footer class="page-footer grey darken-4 grey-text text-lighten-1">
-      <div class="container">
-        <div class="row">
-        <!-- These divs will need classes so that they work as described -->
-        <div class="col l2"><a src=""></a></div>
-        <div class="col l2"><a src=""></a></div>
-        <div class="col l4"><a src=""></a></div>
-        </div>
-      </div>
+      <footer id='footer ' class="page-footer grey darken-4 grey-text text-lighten-1">
+            <div class="container">
+            <div class="row">
+            <!-- These divs will need classes so that they work as described -->
+            <div class="col l2">Contact Info
+            <ul>
+              <li><a href="https://www.linkedin.com/in/jafnun-suhrawardhy-187181166"><img src="static/linkedin-round.png" width="30" height="30" alt="Linkedin-Round"/></a>Jafnun</li>
+              <li><a href="https://www.linkedin.com/in/reina-palacios-13751b146/?trk=join-al"><img src="static/linkedin-round.png" width="30" height="30" alt="Linkedin-Round"/></a>Reina</li>
+              <li><a href="https://www.linkedin.com/in/joshua-n-733172142/"><img src="static/linkedin-round.png" width="30" height="30" alt="Linkedin-Round"/></a>Josh</li>
+            </ul>
+            </div>
+            <div class="col l2">Company content
+            <ul>
+               <li><a href="http://web.mta.info/maps/submap.html">MTA</a></li> 
+            </ul>
+            </div>
+            <div class="col l2">Communities content</div>
+            <div class="col l2">Useful links content</div>
+            </div>
+             </div>
         </footer>
     </body>
 </html>

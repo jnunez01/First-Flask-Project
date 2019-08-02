@@ -90,7 +90,6 @@ def new_message():
         
         now = datetime.datetime.now()
         message_date = now.strftime("%m-%d-%Y %H:%M:%S")
-        
 
 
     events = mongo.db.message
